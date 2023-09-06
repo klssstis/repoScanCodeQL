@@ -27,7 +27,7 @@ fileExitCode = '/tmp/check123'
 foldDBtmp = '/tmp/dbtmp/'
 resultFile = '/tmp/1.csv'
 
-gitCommit = '025535ecd11bdebd8eb28ed4f0f6b509b1b54577'
+
 
 with open('repoList','r') as flist:
     for j in flist.readlines():
@@ -46,6 +46,7 @@ with open('repoList','r') as flist:
         os.system('rm -rm '+folderName)
         os.system("git clone "+gitUrl+' '+folderName)
         for i in commits:
+            gitCommit = i.commit.sha[:8]
             os.system('cd '+folderName+'&&git checkout '+gitCommit)
             os.system('cd '+folderName+'&&'+prebuildLine)
             os.system('rm -rf '+foldDBtmp)
@@ -59,15 +60,15 @@ with open('repoList','r') as flist:
                 os.system('/opt/codeqlmy/codeql/codeql database analyze '+foldDBtmp+'  codeql/cpp-queries:codeql-suites/cpp-code-scanning.qls --format=csv --output='+resultFile)
                 if os.path.exists(resultFile):
                     num_lines = sum(1 for _ in open(resultFile))
-                    os.system('cp '+resultFile+' ./result/'+datetime.date.today().strftime("%d%m%Y")+'_'+userName+'_'+repoName+'_'+i.split('/')[2])
+                    os.system('cp '+resultFile+' ./result/'+datetime.date.today().strftime("%d%m%Y")+'_'+userName+'_'+repoName+'_'+gitCommit)
                 else:
                     num_lines = 0
-                bot_message = 'count detect codeql = '+str(num_lines)+' https://github.com/'+userName+'/'+repoName+'/commit/'+i.split('/')[2]
+                bot_message = 'count detect codeql = '+str(num_lines)+' https://github.com/'+userName+'/'+repoName+'/commit/'+gitCommit
                 send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
                 response = requests.get(send_text)
             else:
                 print('not build '+gitUrl+' add prebuild line')
-                bot_message = 'error build https://github.com/'+userName+'/'+repoName+'/commit/'+i.split('/')[2]
+                bot_message = 'error build https://github.com/'+userName+'/'+repoName+'/commit/'+gitCommit
                 send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
                 response = requests.get(send_text)
             index+=1
