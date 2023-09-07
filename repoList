@@ -1,1 +1,2 @@
-openssl openssl ./Configure
+openssl_|_openssl_|_./Configure
+postgres_|_postgres_|_apt-get install -y bison flex
