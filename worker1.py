@@ -43,7 +43,7 @@ with open('repoList','r') as flist:
         commits = repo.get_commits(since=since)
 
         index = 1
-        os.system('rm -rm '+folderName)
+        os.system('rm -rf '+folderName)
         os.system("git clone "+gitUrl+' '+folderName)
         for i in commits:
             gitCommit = i.commit.sha[:8]
