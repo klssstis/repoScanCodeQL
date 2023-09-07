@@ -31,9 +31,9 @@ resultFile = '/tmp/1.csv'
 
 with open('repoList','r') as flist:
     for j in flist.readlines():
-        userName = j.split(' ')[0]
-        repoName = j.splitlines()[0].split(' ')[1]
-        prebuildLine = j.splitlines()[0].split(' ')[2]
+        userName = j.split('_|_')[0]
+        repoName = j.splitlines()[0].split('_|_')[1]
+        prebuildLine = j.splitlines()[0].split('_|_')[2]
 
         auth = Auth.Token(github_token)
         g = Github(auth=auth)
