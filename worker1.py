@@ -71,6 +71,6 @@ with open('repoList','r') as flist:
                 send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
                 response = requests.get(send_text)
             index+=1
-            if index >2:
+            if index >1:
                 break
 os.system('echo \"'+datetime.date.today().strftime("%d%m%Y")+'_'+userName+'_'+repoName+'\" >> ./result/tmp')
