@@ -67,8 +67,7 @@ with open('repoList','r') as flist:
                 send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
                 response = requests.get(send_text)
             else:
-                print('not build \n'+gitUrl+' change prebuild line')
-                bot_message = 'error build https://github.com/'+userName+'/'+repoName+'/commit/'+gitCommit
+                bot_message = 'error build \n https://github.com/'+userName+'/'+repoName+'/commit/'+gitCommit
                 send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
                 response = requests.get(send_text)
             index+=1
