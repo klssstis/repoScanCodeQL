@@ -45,11 +45,11 @@ with open('repoList','r') as flist:
         index = 1
         os.system('rm -rf '+folderName)
         os.system("git clone "+gitUrl+' '+folderName)
-        bot_message = ''
-        for i in commits:
-            bot_message += 'https://github.com/'+userName+'/'+repoName+'/'+i.commit.sha[:8]+'\n'
-            send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
-            response = requests.get(send_text)
+#        bot_message = ''
+#        for i in commits:
+#            bot_message += 'https://github.com/'+userName+'/'+repoName+'/commit/'+i.commit.sha[:8]+'\n'
+#            send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
+#            response = requests.get(send_text)
 
         for i in commits:
             gitCommit = i.commit.sha[:8]
