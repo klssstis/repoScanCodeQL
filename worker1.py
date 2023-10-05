@@ -26,7 +26,7 @@ folderName = '/tmp/works/'
 fileExitCode = '/tmp/check123'
 foldDBtmp = '/tmp/dbtmp/'
 resultFile = '/tmp/1.csv'
-
+os.system('/opt/codeqlmy/codeql/ resolve ram --ram=4000')
 
 
 with open('repoList','r') as flist:
