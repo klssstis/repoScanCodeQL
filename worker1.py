@@ -25,6 +25,8 @@ os.system("cd /opt/codeqlmy&&sudo wget https://github.com/github/codeql-cli-bina
 os.system('cp ./result/1.ql /opt/codeqlmy/codeql-repo/cpp/ql/src/Security/CWE/CWE-134/UncontrolledFormatString.ql')
 os.system('cp ./result/1.ql /opt/codeqlmy/codeql-repo/cpp/ql/src/Security/CWE/CWE-134/UncontrolledFormatStringThroughGlobalVar.ql')
 
+os.system('cp ./result/1.ql /opt/codeqlmy/codeql-repo/cpp/ql/src/Critical/NewFreeMismatch.ql')
+
 folderName = '/tmp/works/'
 fileExitCode = '/tmp/check123'
 foldDBtmp = '/tmp/dbtmp/'
