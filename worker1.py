@@ -21,8 +21,9 @@ dataVerIns = dataVersion.text.split('<title>Release v')[1].split(' · github/cod
 
 os.system("cd /opt/&&sudo mkdir codeqlmy&&cd codeqlmy&&sudo git clone https://github.com/github/codeql.git codeql-repo") 
 os.system("cd /opt/codeqlmy&&sudo wget https://github.com/github/codeql-cli-binaries/releases/download/v"+dataVerIns+"/codeql-linux64.zip&&sudo unzip codeql-linux64.zip&&sudo rm codeql-linux64.zip")
-
+#CodeQL is out of memory.
 os.system('cp ./result/1.ql /opt/codeqlmy/codeql-repo/cpp/ql/src/Security/CWE/CWE-134/UncontrolledFormatString.ql')
+os.system('cp ./result/1.ql /opt/codeqlmy/codeql-repo/cpp/ql/src/Security/CWE/CWE-134/UncontrolledFormatStringThroughGlobalVar.ql')
 
 folderName = '/tmp/works/'
 fileExitCode = '/tmp/check123'
