@@ -1,1 +1,1 @@
-postgres_|_postgres_|_apt-get install -y bison flex
+postgres_|_postgres_|_apt-get install -y bison flex libreadline-dev
