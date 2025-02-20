@@ -1,3 +1,3 @@
-postgres_|_postgres_|_apt-get install -y bison flex
+postgres_|_postgres_|_apt-get install -y bison flex libreadline-dev
 FreeRADIUS_|_freeradius-server_|_apt-get install -y libtalloc-dev libkqueue-dev&&./configure
 openssl_|_openssl_|_./Configure
